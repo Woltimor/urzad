@@ -12,6 +12,6 @@ namespace Urzad.Services
 
         Task<PersonalAtributesResponse> GetAsync(int id);
         Task<List<PersonalAtributesResponse>> GetAsync();
-
+        //lol sdfsdf
     }
 }

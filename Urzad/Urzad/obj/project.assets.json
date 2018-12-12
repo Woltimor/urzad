@@ -12639,11 +12639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kryst\\source\\repos\\Urzad\\Urzad\\Urzad.csproj",
+      "projectUniqueName": "D:\\Repo\\urzad\\Urzad\\Urzad\\Urzad.csproj",
       "projectName": "Urzad",
-      "projectPath": "C:\\Users\\kryst\\source\\repos\\Urzad\\Urzad\\Urzad.csproj",
+      "projectPath": "D:\\Repo\\urzad\\Urzad\\Urzad\\Urzad.csproj",
       "packagesPath": "C:\\Users\\kryst\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kryst\\source\\repos\\Urzad\\Urzad\\obj\\",
+      "outputPath": "D:\\Repo\\urzad\\Urzad\\Urzad\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
