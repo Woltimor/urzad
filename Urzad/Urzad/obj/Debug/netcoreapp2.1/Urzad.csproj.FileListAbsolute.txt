@@ -1,0 +1,16 @@
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.deps.json
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.runtimeconfig.json
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.runtimeconfig.dev.json
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.dll
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.pdb
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csprojAssemblyReference.cache
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csproj.CoreCompileInputs.cache
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorAssemblyInfo.cache
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorAssemblyInfo.cs
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.AssemblyInfoInputs.cache
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.AssemblyInfo.cs
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorTargetAssemblyInfo.cache
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.dll
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.pdb
+C:\Users\kryst\source\repos\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.Views.dll
+C:\Users\kryst\source\repos\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csproj.CopyComplete
