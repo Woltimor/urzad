@@ -53,6 +53,7 @@ namespace Urzad.Services
             };
             await _managementRep.InsertAsync(kw);
             return (int)kwalifikacje.IdKwalifikacji;
+            //xD
         }
 
     }
