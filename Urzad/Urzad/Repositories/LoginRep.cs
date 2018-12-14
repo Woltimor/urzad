@@ -52,5 +52,19 @@ namespace Urzad.Repositories
          _context.DataRejestracji.Add(data);
          await _context.SaveChangesAsync();
         }
+        public async Task UpdateLogin(int id, Login login, Osoba osoba)
+        {
+            var osobaX = _context.Osoba.Find(id);
+            var loginX = await _context.Login.Where(n => n.IdOsoby == id).LastOrDefaultAsync();
+            osobaX.Imie = osoba.Imie;
+            osobaX.Nazwisko = osoba.Nazwisko;
+            loginX.Login1 = login.Login1;
+            loginX.Hasło = login.Hasło;
+
+            _context.Entry(loginX).State = EntityState.Modified;
+            _context.Entry(osobaX).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+  
+        }
     }
 }

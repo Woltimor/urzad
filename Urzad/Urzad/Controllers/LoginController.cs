@@ -64,9 +64,12 @@ namespace Urzad.Controllers
             return Ok(ret);
         }
 
-
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value) { }
+        public async Task<ActionResult> Put(int id, [FromBody]LoginResponse loginResponse) {
+
+            var ret = await _loginServ.UpdateLogin(id, loginResponse);
+            return Ok(ret);
+        }
         [HttpDelete("{id}")]
         public void Delete(int id) { }
     }

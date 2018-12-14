@@ -16,6 +16,8 @@ namespace Urzad.Responses
         public string Email { get; set; }
         public DateTime? DataUrodzenia { get; set; }
         public string Płeć { get; set; }
+        public string Login1 { get; set; }
+        public string Hasło { get; set; }
 
         public ICollection<Logins> Login { get; set; }
         public ICollection<DataRejestracji> DataRejestracjis { get; set; }
