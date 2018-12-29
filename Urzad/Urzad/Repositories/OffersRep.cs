@@ -26,6 +26,7 @@ namespace Urzad.Repositories
                 KategoriaOferty = z.KategoriaOferty.Where(p => p.IdTypu == z.IdTypu)
               .Select(p => new Responses.KategoriaOferty
               {
+    
                   Nazwa = p.Nazwa,
                   Oferty = p.Oferty.Where(u => u.IdKategorii == p.IdKategorii)
                 .Select(u => new Responses.Oferty
@@ -64,6 +65,18 @@ namespace Urzad.Repositories
                     }).ToList()
                 }).ToList()
               }).ToList()
+            }).ToListAsync();
+        }
+        public async Task<List<Responses.Oferty>> GetAllAsync()
+        {
+            return await _context.Oferty.Select(z => new Responses.Oferty
+            {
+                IdOferty = z.IdOferty,
+                OpisOferty = z.OpisOferty,
+                IdKategorii = z.IdKategorii,
+                Nazwa = z.IdKategoriiNavigation.Nazwa,
+                IdTypu = z.IdKategoriiNavigation.IdTypu,
+                OpisTypu = z.IdKategoriiNavigation.IdTypuNavigation.Opis
             }).ToListAsync();
         }
     }

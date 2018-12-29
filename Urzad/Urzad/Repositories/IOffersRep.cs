@@ -10,5 +10,6 @@ namespace Urzad.Repositories
     {
         Task<List<OffersResponse>> GetAsync();
         Task<List<OffersResponse>> GetAsync(int id);
+        Task<List<Oferty>> GetAllAsync();
     }
 }

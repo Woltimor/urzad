@@ -66,6 +66,78 @@ namespace Urzad.Controllers
             var ret = await _magagementServ.insert(kwalifikacje);
             return Ok(ret);
         }
+        [HttpPut("typy/{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody]ManagementResponse types)
+        {
+
+            var ret = await _magagementServ.UpdateType(id, types);
+            return Ok(ret);
+        }
+        [HttpPut("kategorie/{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody]CategoryResponse categories)
+        {
+
+            var ret = await _magagementServ.UpdateCategory(id, categories);
+            return Ok(ret);
+        }
+        [HttpPut("oferty/{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody]OfferResponse offers)
+        {
+
+            var ret = await _magagementServ.UpdateOffer(id, offers);
+            return Ok(ret);
+        }
+        [HttpGet("typy")]
+        public async Task<IActionResult> GetType()
+        {
+
+
+            List<ManagementResponse> list = new List<ManagementResponse>();
+            try
+            {
+                list = await _magagementServ.GetTypeAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
+        [HttpGet("kategorie")]
+        public async Task<IActionResult> GetCategory()
+        {
+
+
+            List<CategoryResponse> list = new List<CategoryResponse>();
+            try
+            {
+                list = await _magagementServ.GetCategoryAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
+        [HttpGet("oferty")]
+        public async Task<IActionResult> GetOffer()
+        {
+
+
+            List<OfferResponse> list = new List<OfferResponse>();
+            try
+            {
+                list = await _magagementServ.GetOfferAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
 
 
     }

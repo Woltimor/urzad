@@ -28,6 +28,11 @@ namespace Urzad.Services
                 var result = await _offersRep.GetAsync();
                 return result;
             }
-        
+        public async Task<List<Oferty>> GetAllAsync()
+        {
+            var result = await _offersRep.GetAllAsync();
+            return result;
+        }
+
     }
 }

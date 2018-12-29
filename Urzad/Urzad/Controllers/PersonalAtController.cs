@@ -20,7 +20,8 @@ namespace Urzad.Controllers
             }
             [HttpGet]
             public async Task<IActionResult> Get()
-            {
+
+        {
 
 
                 List<PersonalAtributesResponse> list = new List<PersonalAtributesResponse>();

@@ -54,7 +54,7 @@ namespace Urzad.Repositories
         }
         public async Task UpdateLogin(int id, Login login, Osoba osoba)
         {
-            var osobaX = _context.Osoba.Find(id);
+            var osobaX = _context.Osoba.Find(id);//null
             var loginX = await _context.Login.Where(n => n.IdOsoby == id).LastOrDefaultAsync();
             osobaX.Imie = osoba.Imie;
             osobaX.Nazwisko = osoba.Nazwisko;

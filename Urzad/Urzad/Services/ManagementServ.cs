@@ -55,6 +55,70 @@ namespace Urzad.Services
             return (int)kwalifikacje.IdKwalifikacji;
             //xD
         }
+        public async Task<int> UpdateType(int id, ManagementResponse types)
+        {
+            TypOferty typ = new TypOferty
+            {
+                Opis = types.Opis
+            };
+            try
+            {
+                await _managementRep.UpdateType(id, typ);
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return id;
+        }
+        public async Task<int> UpdateCategory(int id, CategoryResponse categories) {
+            Data.Models.KategoriaOferty kat = new Data.Models.KategoriaOferty
+            {
+                Nazwa = categories.Nazwa
+            };
+            try
+            {
+                await _managementRep.UpdateCategory(id, kat);
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return id;
+        }
+
+        public async Task<int> UpdateOffer(int id, OfferResponse offers) {
+            Data.Models.Oferty off = new Data.Models.Oferty
+            {
+                OpisOferty = offers.OpisOferty
+            };
+            try
+            {
+                await _managementRep.UpdateOffer(id, off);
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return id;
+        }
+        public async Task<List<ManagementResponse>> GetTypeAsync()
+        {
+            var result = await _managementRep.GetTypeAsync();
+            return result;
+        }
+        public async Task<List<CategoryResponse>> GetCategoryAsync()
+        {
+            var result = await _managementRep.GetCategoryAsync();
+            return result;
+        }
+        public async Task<List<OfferResponse>> GetOfferAsync()
+        {
+            var result = await _managementRep.GetOfferAsync();
+            return result;
+        }
+
+
 
     }
 }

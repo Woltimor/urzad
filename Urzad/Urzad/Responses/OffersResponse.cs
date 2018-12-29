@@ -16,7 +16,11 @@ namespace Urzad.Responses
     public class Oferty
     {
         public int IdOferty { get; set; }
+        public int? IdTypu { get; set; }
+        public string Opis { get; set; }
+        public string OpisTypu { get; set; }
         public int? IdKategorii { get; set; }
+        public string Nazwa { get; set; }
         public string OpisOferty { get; set; }
         public KategoriaOferty IdKategoriiNavigation { get; set; }
         public ICollection<WymaganeOsiągnięcia> WymaganeOsiągnięcia { get; set; }

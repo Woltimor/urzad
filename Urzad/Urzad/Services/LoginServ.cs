@@ -60,18 +60,18 @@ namespace Urzad.Services
         {
             Login login = new Login
             {
-                Login1 = loginResponse.Login.Where(n=>n.IdOsoby == id).Select(n => n.Login1).SingleOrDefault(),
-                Hasło = loginResponse.Login.Where(n => n.IdOsoby == id).Select(n => n.Hasło).SingleOrDefault()
+                Login1 = loginResponse.Login1,
+                Hasło = loginResponse.Hasło
             };
             Osoba osoba = new Osoba
             {
-                Imie = loginResponse.Imie,
-                Nazwisko = loginResponse.Nazwisko
+               Imie = loginResponse.Imie,
+               Nazwisko = loginResponse.Nazwisko
 
             };
             try
             {
-                await _loginRep.UpdateLogin(id, login, osoba);
+               await _loginRep.UpdateLogin(id, login, osoba);
             }
             catch (Exception e)
             {

@@ -37,6 +37,14 @@ namespace Urzad
             services.AddDbContext<UrzadPracyContext>(options => { options.UseSqlServer(Configuration.GetConnectionString("DefaultDatabase"));
             });
 
+            services.AddCors(o => o.AddPolicy("Allow all", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowCredentials()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddMvc().AddJsonOptions(options =>
@@ -65,8 +73,8 @@ namespace Urzad
             {
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+            app.UseCors("Allow all");
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

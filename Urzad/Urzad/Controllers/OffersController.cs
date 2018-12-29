@@ -20,7 +20,7 @@ namespace Urzad.Controllers
             _offersServ = offersServ;
 
             }
-            [HttpGet]
+            [HttpGet("chujowa")]
             public async Task<IActionResult> Get()
             {
 
@@ -57,5 +57,22 @@ namespace Urzad.Controllers
             public void Put(int id, [FromBody]string value) { }
             [HttpDelete("{id}")]
             public void Delete(int id) { }
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll()
+        {
+
+
+            List<Oferty> list = new List<Oferty>();
+            try
+            {
+                list = await _offersServ.GetAllAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
     }
 }

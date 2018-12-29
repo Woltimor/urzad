@@ -11,6 +11,7 @@ namespace Urzad.Services
 
         Task<List<OffersResponse>> GetAsync(int id);
         Task<List<OffersResponse>> GetAsync();
+        Task<List<Oferty>> GetAllAsync();
 
     }
 }

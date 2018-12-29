@@ -10,7 +10,21 @@ namespace Urzad.Responses
 
         public int IdTypu { get; set; }
         public string Opis { get; set; }
-        public ICollection<KategoriaOferty> KategoriaOferty { get; set; }
     }
+    public class CategoryResponse // Kategoria
+    {
+        public int IdKategorii { get; set; }
+        public int? IdTypu { get; set; }
+        public string Nazwa { get; set; }
+    }
+
+    public class OfferResponse // Oferta
+    {
+
+         public int IdOferty { get; set; }
+         public int? IdKategorii { get; set; }
+         public string OpisOferty { get; set; }
+    }
+
 
 }

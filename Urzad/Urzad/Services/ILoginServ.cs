@@ -13,5 +13,6 @@ namespace Urzad.Services
         Task<List<LoginResponse>> GetAsync();
         Task<int> insertLogin(LoginResponse loginResponse);
         Task<int> UpdateLogin(int id, LoginResponse loginResponse);
+
     }
 }
