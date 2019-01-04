@@ -12,5 +12,6 @@ namespace Urzad.Responses
         public string Nazwisko { get; set; }
         public string Login { get; set; }
         public string Haslo { get; set; }
+        public string Uprawnienia { get; set; }
     }
 }

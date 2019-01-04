@@ -64,6 +64,7 @@ namespace Urzad.Controllers
             return Ok(new
             {
                 Id = user.IdOsoby,
+                Permission = user.Uprawnienia,
                 Username = user.Login,
                 FirstName = user.Imie,
                 LastName = user.Nazwisko,

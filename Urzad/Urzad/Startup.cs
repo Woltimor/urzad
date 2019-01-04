@@ -60,15 +60,12 @@ namespace Urzad
             services.AddScoped<IPersonalAtributesServ,PersonalAtributesServ>();
             services.AddScoped<IOffersRep, OffersRep>();
             services.AddScoped<IOffersServ, OffersServ>();
-            services.AddScoped<ILoginRep, LoginRep>();
-            services.AddScoped<ILoginServ, LoginServ>();
             services.AddScoped<IManagementRep, ManagementRep>();
             services.AddScoped<IManagementServ, ManagementServ>();
             services.AddScoped<IUserServ, UserServ>();
 
 
             services.AddAutoMapper();
-            services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();

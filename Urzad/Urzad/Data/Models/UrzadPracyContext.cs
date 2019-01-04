@@ -23,7 +23,7 @@ namespace Urzad.Data.Models
         public virtual DbSet<TypOferty> TypOferty { get; set; }
         public virtual DbSet<Wniosek> Wniosek { get; set; }
         public virtual DbSet<WymaganeOsiągnięcia> WymaganeOsiągnięcia { get; set; }
-        public object LoginResponse { get; internal set; }
+        //public object LoginResponse { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
