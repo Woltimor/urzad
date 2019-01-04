@@ -19,7 +19,7 @@ using AutoMapper;
 namespace Urzad.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/las/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {

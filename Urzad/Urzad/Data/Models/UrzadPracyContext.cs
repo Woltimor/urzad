@@ -15,7 +15,6 @@ namespace Urzad.Data.Models
         {
         }
 
-        public virtual DbSet<DataRejestracji> DataRejestracji { get; set; }
         public virtual DbSet<KategoriaOferty> KategoriaOferty { get; set; }
         public virtual DbSet<Kwalifikacje> Kwalifikacje { get; set; }
         public virtual DbSet<Oferty> Oferty { get; set; }
@@ -37,30 +36,6 @@ namespace Urzad.Data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DataRejestracji>(entity =>
-            {
-                entity.HasKey(e => e.IdDaty)
-                    .ForSqlServerIsClustered(false);
-
-                entity.ToTable("Data_rejestracji");
-
-                entity.Property(e => e.IdDaty).HasColumnName("Id_daty");
-
-                entity.Property(e => e.DataKońcowa)
-                    .HasColumnName("Data_końcowa")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.DataRejestracji1)
-                    .HasColumnName("Data_rejestracji")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.IdOsoby).HasColumnName("Id_osoby");
-
-                entity.HasOne(d => d.IdOsobyNavigation)
-                    .WithMany(p => p.DataRejestracji)
-                    .HasForeignKey(d => d.IdOsoby)
-                    .HasConstraintName("FK_DATA_REJ_DATA_REJE_OSOBA");
-            });
 
             modelBuilder.Entity<KategoriaOferty>(entity =>
             {

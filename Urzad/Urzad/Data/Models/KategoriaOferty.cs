@@ -11,7 +11,7 @@ namespace Urzad.Data.Models
             Wniosek = new HashSet<Wniosek>();
         }
 
-        public int IdKategorii { get; set; }
+        public int? IdKategorii { get; set; }
         public int? IdTypu { get; set; }
         public string Nazwa { get; set; }
 

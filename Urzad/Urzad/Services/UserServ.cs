@@ -9,9 +9,9 @@ namespace Urzad.Services
 {
     public class UserServ : IUserServ
     {
-        private DataContext _context;
+        private UrzadPracyContext _context;
 
-        public UserServ(DataContext context)
+        public UserServ(UrzadPracyContext context)
         {
             _context = context;
         }
@@ -20,7 +20,7 @@ namespace Urzad.Services
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo))
                 return null;
 
-            var user = _context.Osoby.SingleOrDefault(x => x.Login == login);
+            var user = _context.Osoba.SingleOrDefault(x => x.Login == login);
 
             // check if username exists
             if (user == null)
@@ -40,7 +40,7 @@ namespace Urzad.Services
             if (string.IsNullOrWhiteSpace(haslo))
                 throw new AppException("Password is required");
 
-            if (_context.Osoby.Any(x => x.Login == osoba.Login))
+            if (_context.Osoba.Any(x => x.Login == osoba.Login))
                 throw new AppException("Username \"" + osoba.Login + "\" is already taken");
 
             byte[] passwordHash, passwordSalt;
@@ -49,7 +49,7 @@ namespace Urzad.Services
             osoba.HasłoHash = passwordHash;
             osoba.HasłoSalt = passwordSalt;
 
-            _context.Osoby.Add(osoba);
+            _context.Osoba.Add(osoba);
             _context.SaveChanges();
 
             return osoba;
@@ -57,27 +57,27 @@ namespace Urzad.Services
 
         public void Delete(int id)
         {
-            var user = _context.Osoby.Find(id);
+            var user = _context.Osoba.Find(id);
             if (user != null)
             {
-                _context.Osoby.Remove(user);
+                _context.Osoba.Remove(user);
                 _context.SaveChanges();
             }
         }
 
         public IEnumerable<Osoba> GetAll()
         {
-            return _context.Osoby;
+            return _context.Osoba;
         }
 
         public Osoba GetById(int id)
         {
-            return _context.Osoby.Find(id);
+            return _context.Osoba.Find(id);
         }
 
         public void Update(Osoba osobaParam, string haslo = null)
         {
-            var user = _context.Osoby.Find(osobaParam.IdOsoby);
+            var user = _context.Osoba.Find(osobaParam.IdOsoby);
 
             if (user == null)
                 throw new AppException("User not found");
@@ -85,7 +85,7 @@ namespace Urzad.Services
             if (osobaParam.Login != user.Login)
             {
                 // username has changed so check if the new username is already taken
-                if (_context.Osoby.Any(x => x.Login == osobaParam.Login))
+                if (_context.Osoba.Any(x => x.Login == osobaParam.Login))
                     throw new AppException("Username " + osobaParam.Login + " is already taken");
             }
 
@@ -104,7 +104,7 @@ namespace Urzad.Services
                 user.HasłoSalt = passwordSalt;
             }
 
-            _context.Osoby.Update(user);
+            _context.Osoba.Update(user);
             _context.SaveChanges();
         }
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

@@ -33,24 +33,24 @@ namespace Urzad.Repositories
 
 
 
-        public async Task InsertAsync(Osoba os, Data.Models.DataRejestracji data)
-        {
-         _context.Osoba.Add(os);
-         await _context.SaveChangesAsync();
-         await _context.SaveChangesAsync();
-         data.IdOsoby = os.IdOsoby;
-         _context.DataRejestracji.Add(data);
-         await _context.SaveChangesAsync();
-        }
-        public async Task UpdateLogin(int id, Osoba osoba)
-        {
-            var osobaX = _context.Osoba.Find(id);
-            osobaX.Imie = osoba.Imie;
-            osobaX.Nazwisko = osoba.Nazwisko;
+      //  public async Task InsertAsync(Osoba os, Data.Models.DataRejestracji data)
+      //  {
+      //   _context.Osoba.Add(os);
+      //   await _context.SaveChangesAsync();
+      //   await _context.SaveChangesAsync();
+      //   data.IdOsoby = os.IdOsoby;
+      ////   _context.DataRejestracji.Add(data);
+      //   await _context.SaveChangesAsync();
+      //  }
+      //  public async Task UpdateLogin(int id, Osoba osoba)
+      //  {
+      //      var osobaX = _context.Osoba.Find(id);
+      //      osobaX.Imie = osoba.Imie;
+      //      osobaX.Nazwisko = osoba.Nazwisko;
 
-            _context.Entry(osobaX).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+      //      _context.Entry(osobaX).State = EntityState.Modified;
+      //      await _context.SaveChangesAsync();
   
-        }
+      //  }
     }
 }

@@ -35,25 +35,6 @@ namespace Urzad.Controllers
             }
             return Ok(response);
         }
-        [HttpPost]
-        [ProducesResponseType(400)]
-        public async Task<ActionResult> CreateAsync([FromBody]LoginResponse loginResponse)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var ret = await _loginServ.insertLogin(loginResponse);
-            return Ok(ret);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody]LoginResponse loginResponse) {
-
-            var ret = await _loginServ.UpdateLogin(id, loginResponse);
-            return Ok(ret);
-        }
         [HttpDelete("{id}")]
         public void Delete(int id) { }
     }

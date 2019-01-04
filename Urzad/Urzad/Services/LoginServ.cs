@@ -22,47 +22,47 @@ namespace Urzad.Services
         }
 
 
-        public async Task<int> insertLogin(LoginResponse loginResponse)
-        {
+        //public async Task<int> insertLogin(LoginResponse loginResponse)
+        //{
             
-            Osoba os = new Osoba()
-            {
-                Imie = loginResponse.Imie,
-                Nazwisko = loginResponse.Nazwisko,
-                Pesel = loginResponse.Pesel,
-                Wykształcenie = loginResponse.Wykształcenie,
-                Email = loginResponse.Email,
-                DataUrodzenia = loginResponse.DataUrodzenia,
-                Płeć = loginResponse.Płeć,
-                Login = loginResponse.Login,
-                Uprawnienia = loginResponse.Uprawnienia
-            };
-            Data.Models.DataRejestracji data = new Data.Models.DataRejestracji()
-            {
-                DataRejestracji1 = System.DateTime.Now,
-                DataKońcowa = System.DateTime.Now.AddMonths(6)
-            };
-            await _loginRep.InsertAsync(os, data);
-            return (int)os.IdOsoby;
+        //    Osoba os = new Osoba()
+        //    {
+        //        Imie = loginResponse.Imie,
+        //        Nazwisko = loginResponse.Nazwisko,
+        //        Pesel = loginResponse.Pesel,
+        //        Wykształcenie = loginResponse.Wykształcenie,
+        //        Email = loginResponse.Email,
+        //        DataUrodzenia = loginResponse.DataUrodzenia,
+        //        Płeć = loginResponse.Płeć,
+        //        Login = loginResponse.Login,
+        //        Uprawnienia = loginResponse.Uprawnienia
+        //    };
+        //    Data.Models.DataRejestracji data = new Data.Models.DataRejestracji()
+        //    {
+        //        DataRejestracji1 = System.DateTime.Now,
+        //        DataKońcowa = System.DateTime.Now.AddMonths(6)
+        //    };
+        //    await _loginRep.InsertAsync(os, data);
+        //    return (int)os.IdOsoby;
 
-        }
-        public async Task<int> UpdateLogin(int id , LoginResponse loginResponse)
-        {
-            Osoba osoba = new Osoba
-            {
-               Imie = loginResponse.Imie,
-               Nazwisko = loginResponse.Nazwisko
+        //}
+        //public async Task<int> UpdateLogin(int id , LoginResponse loginResponse)
+        //{
+        //    Osoba osoba = new Osoba
+        //    {
+        //       Imie = loginResponse.Imie,
+        //       Nazwisko = loginResponse.Nazwisko
 
-            };
-            try
-            {
-               await _loginRep.UpdateLogin(id, osoba);
-            }
-            catch (Exception e)
-            {
-                return -1;
-            }
-            return id;
-        }
+        //    };
+        //    try
+        //    {
+        //       await _loginRep.UpdateLogin(id, osoba);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return -1;
+        //    }
+        //    return id;
+        //}
     }
 }

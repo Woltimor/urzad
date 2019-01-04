@@ -7,7 +7,7 @@ namespace Urzad.Data.Models
     {
         public Osoba()
         {
-            DataRejestracji = new HashSet<DataRejestracji>();
+            
             PosiadaneKwalifikacje = new HashSet<PosiadaneKwalifikacje>();
             Wniosek = new HashSet<Wniosek>();
         }
@@ -24,8 +24,9 @@ namespace Urzad.Data.Models
         public byte[] HasłoSalt { get; set; }
         public string Login { get; set; }
         public string Uprawnienia { get; set; }
+        public DateTime? DataRejestracji { get; set; }
+        public DateTime? DataKońcowa { get; set; }
 
-        public ICollection<DataRejestracji> DataRejestracji { get; set; }
         public ICollection<PosiadaneKwalifikacje> PosiadaneKwalifikacje { get; set; }
         public ICollection<Wniosek> Wniosek { get; set; }
     }
