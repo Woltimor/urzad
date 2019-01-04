@@ -18,7 +18,6 @@ namespace Urzad.Data.Models
         public virtual DbSet<DataRejestracji> DataRejestracji { get; set; }
         public virtual DbSet<KategoriaOferty> KategoriaOferty { get; set; }
         public virtual DbSet<Kwalifikacje> Kwalifikacje { get; set; }
-        public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Oferty> Oferty { get; set; }
         public virtual DbSet<Osoba> Osoba { get; set; }
         public virtual DbSet<PosiadaneKwalifikacje> PosiadaneKwalifikacje { get; set; }
@@ -96,34 +95,6 @@ namespace Urzad.Data.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Login>(entity =>
-            {
-                entity.HasKey(e => e.IdLogin)
-                    .ForSqlServerIsClustered(false);
-
-                entity.Property(e => e.IdLogin).HasColumnName("Id_login");
-
-                entity.Property(e => e.Hasło)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.IdOsoby).HasColumnName("Id_osoby");
-
-                entity.Property(e => e.Login1)
-                    .HasColumnName("Login")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Uprawnienia)
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdOsobyNavigation)
-                    .WithMany(p => p.Login)
-                    .HasForeignKey(d => d.IdOsoby)
-                    .HasConstraintName("FK_LOGIN_LOGIN_OSOBA");
-            });
-
             modelBuilder.Entity<Oferty>(entity =>
             {
                 entity.HasKey(e => e.IdOferty)
@@ -160,9 +131,15 @@ namespace Urzad.Data.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.HasłoHash).HasMaxLength(1024);
+
+                entity.Property(e => e.HasłoSalt).HasMaxLength(1024);
+
                 entity.Property(e => e.Imie)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Login).IsUnicode(false);
 
                 entity.Property(e => e.Nazwisko)
                     .HasMaxLength(40)
@@ -174,6 +151,10 @@ namespace Urzad.Data.Models
 
                 entity.Property(e => e.Płeć)
                     .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Uprawnienia)
+                    .HasMaxLength(1)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Wykształcenie)

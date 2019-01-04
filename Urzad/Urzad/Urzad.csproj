@@ -7,25 +7,32 @@
   <ItemGroup>
     <Compile Remove="Data1\**" />
     <Compile Remove="Data2\**" />
+    <Compile Remove="Data\Files\**" />
+    <Compile Remove="Data\Models2\**" />
     <Content Remove="Data1\**" />
     <Content Remove="Data2\**" />
+    <Content Remove="Data\Files\**" />
+    <Content Remove="Data\Models2\**" />
     <EmbeddedResource Remove="Data1\**" />
     <EmbeddedResource Remove="Data2\**" />
+    <EmbeddedResource Remove="Data\Files\**" />
+    <EmbeddedResource Remove="Data\Models2\**" />
     <None Remove="Data1\**" />
     <None Remove="Data2\**" />
+    <None Remove="Data\Files\**" />
+    <None Remove="Data\Models2\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\AuthController.cs" />
     <Compile Remove="Controllers\PersonalController.cs" />
     <Compile Remove="Repositories\Class.cs" />
     <Compile Remove="Repositories\Interface.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Files\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />

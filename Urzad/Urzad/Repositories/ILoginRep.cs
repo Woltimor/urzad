@@ -10,9 +10,8 @@ namespace Urzad.Repositories
     public interface ILoginRep
     {
         Task<LoginResponse> GetAsync(int id);
-        Task<List<LoginResponse>> GetAsync();
-        Task InsertAsync(Login log, Osoba os, Data.Models.DataRejestracji data);
-        Task UpdateLogin(int id, Login login, Osoba osoba);
+        Task InsertAsync(Osoba os, Data.Models.DataRejestracji data);
+        Task UpdateLogin(int id, Osoba osoba);
 
     }
 }

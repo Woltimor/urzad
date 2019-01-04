@@ -16,7 +16,7 @@ namespace Urzad.Responses
         public string Email { get; set; }
         public ICollection<PosiadaneKwalifikacjes> PosiadaneKwalifikacjes { get; set; }
         public ICollection<Wniosek> Wniosek { get; set; }
-        public Login LoginMod { get; set; }
+     
 
 
         

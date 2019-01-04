@@ -20,23 +20,7 @@ namespace Urzad.Controllers
             _loginServ = loginServ;
 
         }
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
 
-
-            List<LoginResponse> list = new List<LoginResponse>();
-            try
-            {
-                list = await _loginServ.GetAsync();
-            }
-            catch (Exception Ex)
-
-            {
-                return BadRequest(Ex);
-            }
-            return Ok(list);
-        }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {

@@ -15,25 +15,13 @@ namespace Urzad.Responses
         public string Wykształcenie { get; set; }
         public string Email { get; set; }
         public DateTime? DataUrodzenia { get; set; }
+        public string Login { get; set; }
         public string Płeć { get; set; }
-        public string Login1 { get; set; }
-        public string Hasło { get; set; }
+        public string Uprawnienia { get; set; }
 
-        public ICollection<Logins> Login { get; set; }
         public ICollection<DataRejestracji> DataRejestracjis { get; set; }
     }
         
-        public  class Logins
-        {
-            public int IdLogin { get; set; }
-            public int? IdOsoby { get; set; }
-            public string Login1 { get; set; }
-            public string Hasło { get; set; }
-            public string Uprawnienia { get; set; }
-           
-
-        public LoginResponse IdOsobyNavigation { get; set; }
-        }
     public class DataRejestracji
     {
         public int IdDaty { get; set; }

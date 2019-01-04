@@ -10,7 +10,6 @@ namespace Urzad.Services
     public interface ILoginServ
     {
         Task<LoginResponse> GetAsync(int id);
-        Task<List<LoginResponse>> GetAsync();
         Task<int> insertLogin(LoginResponse loginResponse);
         Task<int> UpdateLogin(int id, LoginResponse loginResponse);
 

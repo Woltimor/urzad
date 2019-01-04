@@ -20,7 +20,6 @@ D:\Repo\urzad\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.runtimeconfig.dev.json
 D:\Repo\urzad\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.dll
 D:\Repo\urzad\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.pdb
 D:\Repo\urzad\Urzad\Urzad\bin\Debug\netcoreapp2.1\Urzad.Views.dll
-D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csprojAssemblyReference.cache
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csproj.CoreCompileInputs.cache
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorAssemblyInfo.cache
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorAssemblyInfo.cs
@@ -30,3 +29,4 @@ D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.RazorTargetAssemblyInfo.
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.dll
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.pdb
 D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csproj.CopyComplete
+D:\Repo\urzad\Urzad\Urzad\obj\Debug\netcoreapp2.1\Urzad.csprojAssemblyReference.cache

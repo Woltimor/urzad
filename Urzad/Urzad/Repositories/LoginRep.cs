@@ -26,42 +26,28 @@ namespace Urzad.Repositories
                     Nazwisko = l.Nazwisko,
                     Pesel = l.Pesel,
                     Wykształcenie = l.Wykształcenie,
-                    Login = l.Login.Where(z => z.IdOsoby == l.IdOsoby).Select(c => new Logins
-                    {
-                        Login1 = c.Login1,
-                        Hasło = c.Hasło,
-                        Uprawnienia = c.Uprawnienia
-                    }).ToList()
+                    Login = l.Login,
+                    Uprawnienia = l.Uprawnienia
             }).SingleOrDefaultAsync();
         }
 
-        public Task<List<LoginResponse>> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
 
 
-        public async Task InsertAsync(Login log, Osoba os, Data.Models.DataRejestracji data)
+        public async Task InsertAsync(Osoba os, Data.Models.DataRejestracji data)
         {
          _context.Osoba.Add(os);
          await _context.SaveChangesAsync();
-         log.IdOsoby = os.IdOsoby;
-         _context.Login.Add(log);
          await _context.SaveChangesAsync();
          data.IdOsoby = os.IdOsoby;
          _context.DataRejestracji.Add(data);
          await _context.SaveChangesAsync();
         }
-        public async Task UpdateLogin(int id, Login login, Osoba osoba)
+        public async Task UpdateLogin(int id, Osoba osoba)
         {
-            var osobaX = _context.Osoba.Find(id);//null
-            var loginX = await _context.Login.Where(n => n.IdOsoby == id).LastOrDefaultAsync();
+            var osobaX = _context.Osoba.Find(id);
             osobaX.Imie = osoba.Imie;
             osobaX.Nazwisko = osoba.Nazwisko;
-            loginX.Login1 = login.Login1;
-            loginX.Hasło = login.Hasło;
 
-            _context.Entry(loginX).State = EntityState.Modified;
             _context.Entry(osobaX).State = EntityState.Modified;
             await _context.SaveChangesAsync();
   
