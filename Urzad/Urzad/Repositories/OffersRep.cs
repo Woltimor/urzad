@@ -67,6 +67,7 @@ namespace Urzad.Repositories
               }).ToList()
             }).ToListAsync();
         }
+
         public async Task<List<Responses.Oferty>> GetAllAsync()
         {
             return await _context.Oferty.Select(z => new Responses.Oferty

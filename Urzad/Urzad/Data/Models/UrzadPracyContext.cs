@@ -124,7 +124,7 @@ namespace Urzad.Data.Models
                     .HasMaxLength(12)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Płeć)
+                entity.Property(e => e.Plec)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -132,7 +132,7 @@ namespace Urzad.Data.Models
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Wykształcenie)
+                entity.Property(e => e.Wyksztalcenie)
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });

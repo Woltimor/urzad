@@ -13,10 +13,10 @@ namespace Urzad.Controllers
     [ApiController]
     public class ManagementController : ControllerBase
     {
-        private readonly IManagementServ _magagementServ;
+        private readonly IManagementServ _managementServ;
         public ManagementController(IManagementServ managementServ)
         {
-            _magagementServ = managementServ;
+            _managementServ = managementServ;
         }
         [HttpPost("typy")]
         [ProducesResponseType(400)]
@@ -27,7 +27,7 @@ namespace Urzad.Controllers
                 return BadRequest(ModelState);
             }
 
-            var ret = await _magagementServ.insert(managementResponse);
+            var ret = await _managementServ.Insert(managementResponse);
             return Ok(ret);
         }
         [HttpPost("kategorie")]
@@ -39,7 +39,7 @@ namespace Urzad.Controllers
                 return BadRequest(ModelState);
             }
 
-            var ret = await _magagementServ.insert(kat);
+            var ret = await _managementServ.Insert(kat);
             return Ok(ret);
         }
         [HttpPost("oferty")]
@@ -51,7 +51,7 @@ namespace Urzad.Controllers
                 return BadRequest(ModelState);
             }
 
-            var ret = await _magagementServ.insert(oferty);
+            var ret = await _managementServ.Insert(oferty);
             return Ok(ret);
         }
         [HttpPost("kwalifikacje")]
@@ -63,28 +63,28 @@ namespace Urzad.Controllers
                 return BadRequest(ModelState);
             }
 
-            var ret = await _magagementServ.insert(kwalifikacje);
+            var ret = await _managementServ.Insert(kwalifikacje);
             return Ok(ret);
         }
         [HttpPut("typy/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody]ManagementResponse types)
         {
 
-            var ret = await _magagementServ.UpdateType(id, types);
+            var ret = await _managementServ.UpdateType(id, types);
             return Ok(ret);
         }
         [HttpPut("kategorie/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody]CategoryResponse categories)
         {
 
-            var ret = await _magagementServ.UpdateCategory(id, categories);
+            var ret = await _managementServ.UpdateCategory(id, categories);
             return Ok(ret);
         }
         [HttpPut("oferty/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody]OfferResponse offers)
         {
 
-            var ret = await _magagementServ.UpdateOffer(id, offers);
+            var ret = await _managementServ.UpdateOffer(id, offers);
             return Ok(ret);
         }
         [HttpGet("typy")]
@@ -95,7 +95,7 @@ namespace Urzad.Controllers
             List<ManagementResponse> list = new List<ManagementResponse>();
             try
             {
-                list = await _magagementServ.GetTypeAsync();
+                list = await _managementServ.GetTypeAsync();
             }
             catch (Exception Ex)
 
@@ -112,7 +112,7 @@ namespace Urzad.Controllers
             List<CategoryResponse> list = new List<CategoryResponse>();
             try
             {
-                list = await _magagementServ.GetCategoryAsync();
+                list = await _managementServ.GetCategoryAsync();
             }
             catch (Exception Ex)
 
@@ -129,7 +129,7 @@ namespace Urzad.Controllers
             List<OfferResponse> list = new List<OfferResponse>();
             try
             {
-                list = await _magagementServ.GetOfferAsync();
+                list = await _managementServ.GetOfferAsync();
             }
             catch (Exception Ex)
 
@@ -138,7 +138,40 @@ namespace Urzad.Controllers
             }
             return Ok(list);
         }
+        [HttpGet("typy/kategorie")]
+        public async Task<IActionResult> GetTypeCategory()
+        {
 
+
+            List<TypeCategoryResponse> list = new List<TypeCategoryResponse>();
+            try
+            {
+                list = await _managementServ.GetTypeCategoryAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
+        [HttpGet("kategorie/oferty")]
+        public async Task<IActionResult> GetCategoryOffer()
+        {
+
+
+            List<CategoryOfferResponse> list = new List<CategoryOfferResponse>();
+            try
+            {
+                list = await _managementServ.GetCategoryOfferAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
 
     }
 }

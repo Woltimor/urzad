@@ -88,6 +88,27 @@ namespace Urzad.Repositories
                 OpisOferty = z.OpisOferty
             }).ToListAsync();
         }
+        public async Task<List<TypeCategoryResponse>> GetTypeCategoryAsync()
+        {
+            return await _context.KategoriaOferty.Select(z => new TypeCategoryResponse
+            {
+                IdKategorii = z.IdKategorii,
+                Nazwa = z.Nazwa,
+                IdTypu =z.IdTypuNavigation.IdTypu,
+                Opis = z.IdTypuNavigation.Opis
+
+            }).ToListAsync();
+        }
+        public async Task<List<CategoryOfferResponse>> GetCategoryOfferAsync()
+        {
+            return await _context.Oferty.Select(z => new CategoryOfferResponse
+            {
+                IdOferty= z.IdOferty,
+                OpisOferty = z.OpisOferty,
+                IdKategorii = z.IdKategoriiNavigation.IdKategorii,
+                Nazwa = z.IdKategoriiNavigation.Nazwa
+            }).ToListAsync();
+        }
 
     }
 }

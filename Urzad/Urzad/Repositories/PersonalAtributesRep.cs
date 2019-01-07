@@ -24,7 +24,7 @@ namespace Urzad.Repository
                 Imie = o.Imie,
                 Nazwisko = o.Nazwisko,
                 Pesel = o.Pesel,
-                Wykształcenie = o.Wykształcenie,
+                Wykształcenie = o.Wyksztalcenie,
                 Email = o.Email,
                 PosiadaneKwalifikacjes = o.PosiadaneKwalifikacje.Where(k => k.IdOsoby == o.IdOsoby)
                     .Select(q => new PosiadaneKwalifikacjes
@@ -52,7 +52,7 @@ namespace Urzad.Repository
                     Imie = o.Imie,
                     Nazwisko = o.Nazwisko,
                     Pesel = o.Pesel,
-                    Wykształcenie = o.Wykształcenie,
+                    Wykształcenie = o.Wyksztalcenie,
                     Email = o.Email,
 
                     PosiadaneKwalifikacjes = o.PosiadaneKwalifikacje.Where(k => k.IdOsoby == o.IdOsoby)

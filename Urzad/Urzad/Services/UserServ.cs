@@ -38,16 +38,18 @@ namespace Urzad.Services
         {
             // validation
             if (string.IsNullOrWhiteSpace(haslo))
-                throw new AppException("Password is required");
+                throw new AppException("Hasło jest wymagane");
 
             if (_context.Osoba.Any(x => x.Login == osoba.Login))
-                throw new AppException("Username \"" + osoba.Login + "\" is already taken");
+                throw new AppException("Login \"" + osoba.Login + "\" jest zajęty");
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(haslo, out passwordHash, out passwordSalt);
 
             osoba.HasłoHash = passwordHash;
             osoba.HasłoSalt = passwordSalt;
+            osoba.DataRejestracji = System.DateTime.Now;
+            osoba.DataKońcowa = System.DateTime.Now.AddMonths(6);
 
             _context.Osoba.Add(osoba);
             _context.SaveChanges();
@@ -86,13 +88,18 @@ namespace Urzad.Services
             {
                 // username has changed so check if the new username is already taken
                 if (_context.Osoba.Any(x => x.Login == osobaParam.Login))
-                    throw new AppException("Username " + osobaParam.Login + " is already taken");
+                    throw new AppException("Login " + osobaParam.Login + " jest zajęty");
             }
 
             // update user properties
             user.Imie = osobaParam.Imie;
             user.Nazwisko = osobaParam.Nazwisko;
             user.Login = osobaParam.Login;
+            user.DataUrodzenia = osobaParam.DataUrodzenia;
+            user.Email = osobaParam.Email;
+            user.Pesel = osobaParam.Pesel;
+            user.Wyksztalcenie = osobaParam.Wyksztalcenie;
+            user.Plec = osobaParam.Plec;
 
             // update password if it was entered
             if (!string.IsNullOrWhiteSpace(haslo))
@@ -109,8 +116,8 @@ namespace Urzad.Services
         }
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            if (password == null) throw new ArgumentNullException("password");
-            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+            if (password == null) throw new ArgumentNullException("hasło");
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Nie może być puste.", "hasło");
 
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {

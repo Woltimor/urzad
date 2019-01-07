@@ -16,10 +16,10 @@ namespace Urzad.Data.Models
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Pesel { get; set; }
-        public string Wykształcenie { get; set; }
+        public string Wyksztalcenie { get; set; }
         public string Email { get; set; }
         public DateTime? DataUrodzenia { get; set; }
-        public string Płeć { get; set; }
+        public string Plec { get; set; }
         public byte[] HasłoHash { get; set; }
         public byte[] HasłoSalt { get; set; }
         public string Login { get; set; }

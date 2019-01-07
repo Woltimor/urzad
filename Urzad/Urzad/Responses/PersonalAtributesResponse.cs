@@ -18,7 +18,6 @@ namespace Urzad.Responses
         public ICollection<Wniosek> Wniosek { get; set; }
      
 
-
         
     }
     public class PosiadaneKwalifikacjes

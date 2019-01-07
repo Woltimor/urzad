@@ -19,5 +19,7 @@ namespace Urzad.Repositories
         Task<List<ManagementResponse>> GetTypeAsync();
         Task<List<CategoryResponse>> GetCategoryAsync();
         Task<List<OfferResponse>> GetOfferAsync();
+        Task<List<TypeCategoryResponse>> GetTypeCategoryAsync();
+        Task<List<CategoryOfferResponse>> GetCategoryOfferAsync();
     }
 }

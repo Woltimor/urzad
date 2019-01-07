@@ -8,10 +8,10 @@ namespace Urzad.Services
 {
     public interface IManagementServ
     {
-        Task<int> insert(ManagementResponse managementResponse);
-        Task<int> insert(KategoriaOferty kat);
-        Task<int> insert(Responses.Oferty oferty);
-        Task<int> insert(Responses.PosiadaneKwalifikacjes kwalifikacje);
+        Task<int> Insert(ManagementResponse managementResponse);
+        Task<int> Insert(KategoriaOferty kat);
+        Task<int> Insert(Responses.Oferty oferty);
+        Task<int> Insert(Responses.PosiadaneKwalifikacjes kwalifikacje);
         Task<int> UpdateType(int id, ManagementResponse types);
         Task<int> UpdateCategory(int id, CategoryResponse categories);
 
@@ -19,7 +19,7 @@ namespace Urzad.Services
         Task<List<ManagementResponse>> GetTypeAsync();
         Task<List<CategoryResponse>> GetCategoryAsync();
         Task<List<OfferResponse>> GetOfferAsync();
-
-
+        Task<List<TypeCategoryResponse>> GetTypeCategoryAsync();
+        Task<List<CategoryOfferResponse>> GetCategoryOfferAsync();
     }
 }

@@ -16,7 +16,7 @@ namespace Urzad.Services
             _managementRep = managementRep;
         }
 
-        public async Task<int> insert(ManagementResponse managementResponse) //opis do TypOferty
+        public async Task<int> Insert(ManagementResponse managementResponse) //opis do TypOferty
         {
             TypOferty typ = new TypOferty()
             {
@@ -25,7 +25,7 @@ namespace Urzad.Services
             await _managementRep.InsertAsync(typ);
             return (int)typ.IdTypu;
         }
-        public async Task<int> insert(Responses.KategoriaOferty kategoriaOferty) //dane do Kategorii oferty
+        public async Task<int> Insert(Responses.KategoriaOferty kategoriaOferty) //dane do Kategorii oferty
         {
             Data.Models.KategoriaOferty kat = new Data.Models.KategoriaOferty()
             {
@@ -35,7 +35,7 @@ namespace Urzad.Services
             await _managementRep.InsertAsync(kat);
             return (int)kat.IdKategorii;
         }
-        public async Task<int> insert(Responses.Oferty oferty) //dane do Oferty
+        public async Task<int> Insert(Responses.Oferty oferty) //dane do Oferty
         {
             Data.Models.Oferty of = new Data.Models.Oferty()
             {
@@ -45,7 +45,7 @@ namespace Urzad.Services
             await _managementRep.InsertAsync(of);
             return (int)oferty.IdOferty;
         }
-        public async Task<int> insert(Responses.PosiadaneKwalifikacjes kwalifikacje) //dane do Kwalifikacji
+        public async Task<int> Insert(Responses.PosiadaneKwalifikacjes kwalifikacje) //dane do Kwalifikacji
         {
             Data.Models.Kwalifikacje kw = new Data.Models.Kwalifikacje()
             {
@@ -53,7 +53,7 @@ namespace Urzad.Services
             };
             await _managementRep.InsertAsync(kw);
             return (int)kwalifikacje.IdKwalifikacji;
-            //xD
+           
         }
         public async Task<int> UpdateType(int id, ManagementResponse types)
         {
@@ -117,8 +117,18 @@ namespace Urzad.Services
             var result = await _managementRep.GetOfferAsync();
             return result;
         }
-
-
+        
+        public async Task<List<TypeCategoryResponse>> GetTypeCategoryAsync()
+        {
+            var result = await _managementRep.GetTypeCategoryAsync();
+            return result;
+        }
+        
+             public async Task<List<CategoryOfferResponse>> GetCategoryOfferAsync()
+        {
+            var result = await _managementRep.GetCategoryOfferAsync();
+            return result;
+        }
 
     }
 }

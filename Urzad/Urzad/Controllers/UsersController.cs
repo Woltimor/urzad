@@ -19,7 +19,7 @@ using AutoMapper;
 namespace Urzad.Controllers
 {
     [Authorize]
-    [Route("api/las/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -41,11 +41,12 @@ namespace Urzad.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]UserResponse userResponse)
         {
-            var user = _userServ.Authenticate(userResponse.Imie, userResponse.Haslo);
+            var user = _userServ.Authenticate(userResponse.Login, userResponse.Haslo);
 
             if (user == null)
+            {
                 return BadRequest(new { message = "Username or password is incorrect" });
-
+            }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -63,11 +64,16 @@ namespace Urzad.Controllers
             // return basic user info (without password) and token to store client side
             return Ok(new
             {
-                Id = user.IdOsoby,
-                Permission = user.Uprawnienia,
-                Username = user.Login,
-                FirstName = user.Imie,
-                LastName = user.Nazwisko,
+                IdOsoby = user.IdOsoby,
+                Uprawnienia = user.Uprawnienia,
+                Login = user.Login,
+                Imie = user.Imie,
+                Nazwisko = user.Nazwisko,
+                Pesel = user.Pesel,
+                EMail = user.Email,
+                DataUrodzenia = user.DataUrodzenia,
+                Wyksztalcenie = user.Wyksztalcenie,
+                Plec = user.Plec,
                 Token = tokenString
             });
         }
