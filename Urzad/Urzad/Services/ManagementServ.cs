@@ -31,6 +31,7 @@ namespace Urzad.Services
             {
                 IdTypu = kategoriaOferty.IdTypu,
                 Nazwa = kategoriaOferty.Nazwa
+               
             };
             await _managementRep.InsertAsync(kat);
             return (int)kat.IdKategorii;
@@ -55,7 +56,7 @@ namespace Urzad.Services
             return (int)kwalifikacje.IdKwalifikacji;
            
         }
-        public async Task<int> UpdateType(int id, ManagementResponse types)
+        public async Task<int> UpdateType(int id, ManagementResponse types)//typy
         {
             TypOferty typ = new TypOferty
             {
@@ -71,9 +72,11 @@ namespace Urzad.Services
             }
             return id;
         }
-        public async Task<int> UpdateCategory(int id, CategoryResponse categories) {
+        public async Task<int> UpdateCategory(int id, CategoryResponse categories)//kategorie
+        {
             Data.Models.KategoriaOferty kat = new Data.Models.KategoriaOferty
             {
+                IdTypu = categories.IdTypu,
                 Nazwa = categories.Nazwa
             };
             try
@@ -87,9 +90,11 @@ namespace Urzad.Services
             return id;
         }
 
-        public async Task<int> UpdateOffer(int id, OfferResponse offers) {
+        public async Task<int> UpdateOffer(int id, OfferResponse offers)//oferty
+        {
             Data.Models.Oferty off = new Data.Models.Oferty
             {
+                IdKategorii= offers.IdKategorii,
                 OpisOferty = offers.OpisOferty
             };
             try

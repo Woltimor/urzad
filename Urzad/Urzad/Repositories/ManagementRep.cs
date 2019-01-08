@@ -76,7 +76,7 @@ namespace Urzad.Repositories
             {
                 IdKategorii= (int)z.IdKategorii,
                 IdTypu = z.IdTypu,
-                Nazwa = z.Nazwa
+                Nazwa = z.Nazwa,
             }).ToListAsync();
         }
         public async Task<List<OfferResponse>> GetOfferAsync()
