@@ -94,8 +94,8 @@ namespace Urzad.Services
         {
             Data.Models.Oferty off = new Data.Models.Oferty
             {
-                IdKategorii= offers.IdKategorii,
-                OpisOferty = offers.OpisOferty
+                OpisOferty = offers.OpisOferty,
+                IdKategorii= offers.IdKategorii
             };
             try
             {

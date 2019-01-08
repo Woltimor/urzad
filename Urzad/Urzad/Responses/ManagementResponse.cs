@@ -24,6 +24,7 @@ namespace Urzad.Responses
          public int IdOferty { get; set; }
          public int? IdKategorii { get; set; }
          public string OpisOferty { get; set; }
+
     }
 
 

@@ -74,7 +74,7 @@ namespace Urzad.Repositories
         {
             return await _context.KategoriaOferty.Select(z => new CategoryResponse
             {
-                IdKategorii= (int)z.IdKategorii,
+                IdKategorii= z.IdKategorii,
                 IdTypu = z.IdTypu,
                 Nazwa = z.Nazwa,
             }).ToListAsync();
@@ -83,7 +83,7 @@ namespace Urzad.Repositories
         {
             return await _context.Oferty.Select(z => new OfferResponse
             {
-                IdKategorii = z.IdKategorii,
+                IdKategorii = (int)z.IdKategorii,
                 IdOferty = z.IdOferty,
                 OpisOferty = z.OpisOferty
             }).ToListAsync();
