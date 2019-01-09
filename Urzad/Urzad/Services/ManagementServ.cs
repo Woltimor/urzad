@@ -56,6 +56,17 @@ namespace Urzad.Services
             return (int)kwalifikacje.IdKwalifikacji;
            
         }
+        public async Task<int> Insert(ProposalResponse proposal) //dane do Kwalifikacji
+        {
+            Data.Models.Wniosek kw = new Data.Models.Wniosek()
+            {
+                IdKategorii = proposal.IdKategorii,
+                IdOsoby = proposal.IdOsoby
+            };
+            await _managementRep.InsertAsync(kw);
+            return (int)proposal.IdOsoby;
+
+        }
         public async Task<int> UpdateType(int id, ManagementResponse types)//typy
         {
             TypOferty typ = new TypOferty

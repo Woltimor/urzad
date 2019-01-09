@@ -23,6 +23,7 @@ namespace Urzad.Data.Models
         public byte[] HasłoHash { get; set; }
         public byte[] HasłoSalt { get; set; }
         public string Login { get; set; }
+        public int Dostep { get; set; }
         public string Uprawnienia { get; set; }
         public DateTime? DataRejestracji { get; set; }
         public DateTime? DataKońcowa { get; set; }

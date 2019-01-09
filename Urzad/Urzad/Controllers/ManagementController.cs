@@ -66,6 +66,18 @@ namespace Urzad.Controllers
             var ret = await _managementServ.Insert(kwalifikacje);
             return Ok(ret);
         }
+        [HttpPost("wniosek")]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult> CreateAsync([FromBody] ProposalResponse proposal)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var ret = await _managementServ.Insert(proposal);
+            return Ok(ret);
+        }
         [HttpPut("typy/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody]ManagementResponse types)
         {

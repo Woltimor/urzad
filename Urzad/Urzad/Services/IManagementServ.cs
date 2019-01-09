@@ -11,6 +11,7 @@ namespace Urzad.Services
         Task<int> Insert(ManagementResponse managementResponse);
         Task<int> Insert(KategoriaOferty kat);
         Task<int> Insert(Responses.Oferty oferty);
+        Task<int> Insert(ProposalResponse proposal);
         Task<int> Insert(Responses.PosiadaneKwalifikacjes kwalifikacje);
         Task<int> UpdateType(int id, ManagementResponse types);
         Task<int> UpdateRoles(int id, RolesResponse roles);

@@ -13,6 +13,7 @@ namespace Urzad.Repositories
         Task InsertAsync(Data.Models.KategoriaOferty kat);
         Task InsertAsync (Data.Models.Oferty oferty);
         Task InsertAsync(Kwalifikacje kwalifikacje);
+        Task InsertAsync(Data.Models.Wniosek wniosek);
         Task UpdateType(int id, TypOferty typ);
         Task UpdateCategory(int id, Data.Models.KategoriaOferty kat);
         Task UpdateOffer(int id, Data.Models.Oferty off);

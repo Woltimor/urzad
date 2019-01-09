@@ -38,6 +38,12 @@ namespace Urzad.Repositories
             await _context.SaveChangesAsync();
 
         }
+        public async Task InsertAsync(Data.Models.Wniosek wniosek)
+        {
+            _context.Wniosek.Add(wniosek);
+            await _context.SaveChangesAsync();
+
+        }
         public async Task UpdateType(int id, TypOferty typ)
         {
             var typx = _context.TypOferty.Find(id);
