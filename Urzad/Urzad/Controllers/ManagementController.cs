@@ -87,6 +87,13 @@ namespace Urzad.Controllers
             var ret = await _managementServ.UpdateOffer(id, offers);
             return Ok(ret);
         }
+        [HttpPut("uprawnienia/{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody]RolesResponse roles)
+        {
+
+            var ret = await _managementServ.UpdateRoles(id, roles);
+            return Ok(ret);
+        }
         [HttpGet("typy")]
         public async Task<IActionResult> GetType()
         {
@@ -113,6 +120,23 @@ namespace Urzad.Controllers
             try
             {
                 list = await _managementServ.GetCategoryAsync();
+            }
+            catch (Exception Ex)
+
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
+        [HttpGet("kwalifikacje")]
+        public async Task<IActionResult> GetQualifications()
+        {
+
+
+            List<QualificationResponse> list = new List<QualificationResponse>();
+            try
+            {
+                list = await _managementServ.GetQualificationsAsync();
             }
             catch (Exception Ex)
 

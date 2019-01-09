@@ -20,23 +20,7 @@ namespace Urzad.Controllers
             _offersServ = offersServ;
 
             }
-            [HttpGet("chujowa")]
-            public async Task<IActionResult> Get()
-            {
 
-
-                List<OffersResponse> list = new List<OffersResponse>();
-                try
-                {
-                    list = await _offersServ.GetAsync();
-                }
-                catch (Exception Ex)
-
-                {
-                    return BadRequest(Ex);
-                }
-                return Ok(list);
-            }
             [HttpGet("{id}")]
             public async Task<IActionResult> Get(int id)
             {

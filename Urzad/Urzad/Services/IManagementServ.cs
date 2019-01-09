@@ -13,6 +13,7 @@ namespace Urzad.Services
         Task<int> Insert(Responses.Oferty oferty);
         Task<int> Insert(Responses.PosiadaneKwalifikacjes kwalifikacje);
         Task<int> UpdateType(int id, ManagementResponse types);
+        Task<int> UpdateRoles(int id, RolesResponse roles);
         Task<int> UpdateCategory(int id, CategoryResponse categories);
 
         Task<int> UpdateOffer(int id, OfferResponse offers);
@@ -21,5 +22,6 @@ namespace Urzad.Services
         Task<List<OfferResponse>> GetOfferAsync();
         Task<List<TypeCategoryResponse>> GetTypeCategoryAsync();
         Task<List<CategoryOfferResponse>> GetCategoryOfferAsync();
+        Task<List<QualificationResponse>> GetQualificationsAsync();
     }
 }

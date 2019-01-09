@@ -46,10 +46,19 @@ namespace Urzad.Repositories
             await _context.SaveChangesAsync();
 
         }
+        public async Task UpdateRoles(int id, Osoba os)
+        {
+            var osx = _context.Osoba.Find(id);
+            osx.Uprawnienia = os.Uprawnienia;
+            _context.Entry(osx).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+        }
         public async Task UpdateCategory(int id, Data.Models.KategoriaOferty kategoria)
         {
             var katx = _context.KategoriaOferty.Find(id);
             katx.Nazwa = kategoria.Nazwa;
+            katx.IdTypu = kategoria.IdTypu;
             _context.Entry(katx).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
@@ -58,6 +67,7 @@ namespace Urzad.Repositories
         {
             var ofx = _context.Oferty.Find(id);
             ofx.OpisOferty = oferty.OpisOferty;
+            ofx.IdKategorii = oferty.IdKategorii;
             _context.Entry(ofx).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
@@ -68,6 +78,14 @@ namespace Urzad.Repositories
             {
                 Opis = z.Opis,
                 IdTypu = z.IdTypu
+            }).ToListAsync();
+        }
+        public async Task<List<QualificationResponse>> GetQualificationsAsync()
+        {
+            return await _context.Kwalifikacje.Select(z => new QualificationResponse
+            {
+                IdKwalifikacji = z.IdKwalifikacji,
+                Opis = z.Opis
             }).ToListAsync();
         }
         public async Task<List<CategoryResponse>> GetCategoryAsync()

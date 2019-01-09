@@ -72,6 +72,22 @@ namespace Urzad.Services
             }
             return id;
         }
+        public async Task<int> UpdateRoles(int id, RolesResponse roles)//role
+        {
+            Osoba os = new Osoba
+            {
+                Uprawnienia = roles.Uprawnienia
+            };
+            try
+            {
+                await _managementRep.UpdateRoles(id, os);
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return id;
+        }
         public async Task<int> UpdateCategory(int id, CategoryResponse categories)//kategorie
         {
             Data.Models.KategoriaOferty kat = new Data.Models.KategoriaOferty
@@ -132,6 +148,12 @@ namespace Urzad.Services
              public async Task<List<CategoryOfferResponse>> GetCategoryOfferAsync()
         {
             var result = await _managementRep.GetCategoryOfferAsync();
+            return result;
+        }
+        
+            public async Task<List<QualificationResponse>> GetQualificationsAsync()
+        {
+            var result = await _managementRep.GetQualificationsAsync();
             return result;
         }
 

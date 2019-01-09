@@ -26,6 +26,15 @@ namespace Urzad.Responses
          public string OpisOferty { get; set; }
 
     }
+    public class QualificationResponse
+    {
+        public int IdKwalifikacji { get; set; }
+        public string Opis { get; set; }
+    }
+    public class RolesResponse
+    {
+        public string Uprawnienia { get; set; }
+    }
 
 
 }

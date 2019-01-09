@@ -26,6 +26,7 @@ namespace Urzad.Repository
                 Pesel = o.Pesel,
                 Wykształcenie = o.Wyksztalcenie,
                 Email = o.Email,
+                Uprawnienia= o.Uprawnienia,
                 PosiadaneKwalifikacjes = o.PosiadaneKwalifikacje.Where(k => k.IdOsoby == o.IdOsoby)
                     .Select(q => new PosiadaneKwalifikacjes
                     {
