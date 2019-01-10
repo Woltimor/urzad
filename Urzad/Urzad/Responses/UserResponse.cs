@@ -14,6 +14,7 @@ namespace Urzad.Responses
         public string Uprawnienia { get; set; }
         public string Pesel { get; set; }
         public string Wyksztalcenie { get; set; }
+        public int Dostep { get; set; }
         public string Email { get; set; }
         public string Plec { get; set; }
         public DateTime? DataUrodzenia { get; set; }

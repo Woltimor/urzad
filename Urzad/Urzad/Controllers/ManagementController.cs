@@ -78,6 +78,18 @@ namespace Urzad.Controllers
             var ret = await _managementServ.Insert(proposal);
             return Ok(ret);
         }
+        [HttpPost("osiagniecia")]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult> CreateAsync([FromBody] AchievementResponse achievement)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var ret = await _managementServ.Insert(achievement);
+            return Ok(ret);
+        }
         [HttpPut("typy/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody]ManagementResponse types)
         {
@@ -104,6 +116,13 @@ namespace Urzad.Controllers
         {
 
             var ret = await _managementServ.UpdateRoles(id, roles);
+            return Ok(ret);
+        }
+        [HttpPut("dostep/{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody]AccessResponse access)
+        {
+
+            var ret = await _managementServ.UpdateAccess(id, access);
             return Ok(ret);
         }
         [HttpGet("typy")]
@@ -174,6 +193,7 @@ namespace Urzad.Controllers
             }
             return Ok(list);
         }
+        
         [HttpGet("typy/kategorie")]
         public async Task<IActionResult> GetTypeCategory()
         {

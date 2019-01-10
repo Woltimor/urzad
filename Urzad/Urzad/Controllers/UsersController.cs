@@ -47,6 +47,10 @@ namespace Urzad.Controllers
             {
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
+            if (user.Dostep == 0)
+            {
+                return BadRequest(new { message = "Nie dostałeś jeszcze dostępu" });
+            }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -74,6 +78,7 @@ namespace Urzad.Controllers
                 DataUrodzenia = user.DataUrodzenia,
                 Wyksztalcenie = user.Wyksztalcenie,
                 Plec = user.Plec,
+                Dostep = user.Dostep,
                 Token = tokenString
             });
         }

@@ -24,7 +24,12 @@ namespace Urzad.Services
             return result;
         }
 
-    public async Task<List<PersonalAtributesResponse>> GetAsync()
+        public async Task<List<ExpextedAchievementsResponse>> GetAchievementsAsync(int id)
+        {
+            var result = await _personalAtributes.GetAchievementsAsync(id);
+            return result;
+        }
+        public async Task<List<PersonalAtributesResponse>> GetAsync()
         {
             var result = await _personalAtributes.GetAsync();
             return result;

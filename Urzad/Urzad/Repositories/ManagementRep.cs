@@ -25,6 +25,11 @@ namespace Urzad.Repositories
             _context.KategoriaOferty.Add(kat);
             await _context.SaveChangesAsync();
         }
+        public async Task InsertAsync(Data.Models.PosiadaneKwalifikacje kw)
+        {
+            _context.PosiadaneKwalifikacje.Add(kw);
+            await _context.SaveChangesAsync();
+        }
 
         public async Task InsertAsync(Data.Models.Oferty oferty)
         {
@@ -49,6 +54,14 @@ namespace Urzad.Repositories
             var typx = _context.TypOferty.Find(id);
             typx.Opis = typ.Opis;
             _context.Entry(typx).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+        }
+        public async Task UpdateAccess(int id, Osoba osoba)
+        {
+            var osx = _context.Osoba.Find(id);
+            osx.Dostep = osoba.Dostep;
+            _context.Entry(osx).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
         }

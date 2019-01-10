@@ -30,6 +30,9 @@ namespace Urzad.Services
             if (!VerifyPasswordHash(haslo, user.HasłoHash, user.HasłoSalt))
                 return null;
 
+           // if (user.Dostep == 0)
+            //    return null;
+
             // authentication successful
             return user;
         }
@@ -50,6 +53,7 @@ namespace Urzad.Services
             osoba.HasłoSalt = passwordSalt;
             osoba.DataRejestracji = System.DateTime.Now;
             osoba.DataKońcowa = System.DateTime.Now.AddMonths(6);
+            osoba.Dostep = 0;
 
             _context.Osoba.Add(osoba);
             _context.SaveChanges();
@@ -100,6 +104,7 @@ namespace Urzad.Services
             user.Pesel = osobaParam.Pesel;
             user.Wyksztalcenie = osobaParam.Wyksztalcenie;
             user.Plec = osobaParam.Plec;
+            user.Dostep = osobaParam.Dostep;
 
             // update password if it was entered
             if (!string.IsNullOrWhiteSpace(haslo))

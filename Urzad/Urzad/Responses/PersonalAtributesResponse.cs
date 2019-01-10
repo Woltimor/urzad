@@ -15,6 +15,7 @@ namespace Urzad.Responses
         public string Wykształcenie { get; set; }
         public string Email { get; set; }
         public string Uprawnienia { get; set; }
+        public int Dostep { get; set; }
         public ICollection<PosiadaneKwalifikacjes> PosiadaneKwalifikacjes { get; set; }
         public ICollection<Wniosek> Wniosek { get; set; }
      

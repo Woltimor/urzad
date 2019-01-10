@@ -50,7 +50,21 @@ namespace Urzad.Controllers
                 }
                 return Ok(response);
             }
-            [HttpPost]
+        [HttpGet("osiagniecia/{id}")]
+        public async Task<IActionResult> GetAchievements(int id)
+        {
+            List<ExpextedAchievementsResponse> list = new List<ExpextedAchievementsResponse>();
+            try
+            {
+                list = await _atributesServ.GetAchievementsAsync(id);
+            }
+            catch (Exception Ex)
+            {
+                return BadRequest(Ex);
+            }
+            return Ok(list);
+        }
+        [HttpPost]
             public void Post([FromBody]string value) { }
             [HttpPut("{id}")]
             public void Put(int id, [FromBody]string value) { }

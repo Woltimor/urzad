@@ -36,6 +36,17 @@ namespace Urzad.Services
             await _managementRep.InsertAsync(kat);
             return (int)kat.IdKategorii;
         }
+        public async Task<int> Insert(AchievementResponse achievement) //dane do Kategorii oferty
+        {
+            Data.Models.PosiadaneKwalifikacje kwal = new Data.Models.PosiadaneKwalifikacje()
+            {
+                IdKwalifikacji = achievement.IdKwalifikacji,
+                IdOsoby = achievement.IdOsoby
+
+            };
+            await _managementRep.InsertAsync(kwal);
+            return (int)kwal.IdOsoby;
+        }
         public async Task<int> Insert(Responses.Oferty oferty) //dane do Oferty
         {
             Data.Models.Oferty of = new Data.Models.Oferty()
@@ -76,6 +87,22 @@ namespace Urzad.Services
             try
             {
                 await _managementRep.UpdateType(id, typ);
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return id;
+        }
+        public async Task<int> UpdateAccess(int id, AccessResponse access)//typy
+        {
+            Osoba osoba = new Osoba
+            {
+                Dostep = access.Dostep
+            };
+            try
+            {
+                await _managementRep.UpdateAccess(id, osoba);
             }
             catch (Exception e)
             {

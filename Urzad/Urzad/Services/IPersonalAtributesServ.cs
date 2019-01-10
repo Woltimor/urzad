@@ -10,8 +10,9 @@ namespace Urzad.Services
     public interface IPersonalAtributesServ
     {
 
+
         Task<PersonalAtributesResponse> GetAsync(int id);
+        Task<List<ExpextedAchievementsResponse>> GetAchievementsAsync(int id);
         Task<List<PersonalAtributesResponse>> GetAsync();
-        //lol sdfsdf
     }
 }

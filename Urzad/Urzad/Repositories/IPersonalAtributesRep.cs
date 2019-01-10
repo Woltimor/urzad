@@ -11,5 +11,6 @@ namespace Urzad.Repository
     {
         Task<List<PersonalAtributesResponse>> GetAsync();
         Task<PersonalAtributesResponse> GetAsync(int id);
+        Task<List<ExpextedAchievementsResponse>> GetAchievementsAsync(int id);
     }
 }

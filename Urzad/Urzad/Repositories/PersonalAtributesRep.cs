@@ -27,6 +27,7 @@ namespace Urzad.Repository
                 Wykształcenie = o.Wyksztalcenie,
                 Email = o.Email,
                 Uprawnienia= o.Uprawnienia,
+                Dostep = (int)o.Dostep,
                 PosiadaneKwalifikacjes = o.PosiadaneKwalifikacje.Where(k => k.IdOsoby == o.IdOsoby)
                     .Select(q => new PosiadaneKwalifikacjes
                     {
@@ -55,6 +56,7 @@ namespace Urzad.Repository
                     Pesel = o.Pesel,
                     Wykształcenie = o.Wyksztalcenie,
                     Email = o.Email,
+                    Dostep = (int)o.Dostep,
 
                     PosiadaneKwalifikacjes = o.PosiadaneKwalifikacje.Where(k => k.IdOsoby == o.IdOsoby)
                     .Select(q => new PosiadaneKwalifikacjes
@@ -71,6 +73,15 @@ namespace Urzad.Repository
 
                 })
                 .SingleOrDefaultAsync();
+        }
+        public async Task<List<ExpextedAchievementsResponse>> GetAchievementsAsync(int id)
+        {
+            return await _context.WymaganeOsiągnięcia.Where(p => p.IdOferty == id)
+                .Select(o => new ExpextedAchievementsResponse
+                {
+                    Opis = o.IdKwalifikacjiNavigation.Opis
+                }).ToListAsync();
+                
         }
         public void Insert(Osoba osoba)
         {
@@ -104,5 +115,7 @@ namespace Urzad.Repository
 
             await _context.SaveChangesAsync();
         }
+
+ 
     }
 }

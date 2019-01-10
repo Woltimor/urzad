@@ -14,7 +14,9 @@ namespace Urzad.Repositories
         Task InsertAsync (Data.Models.Oferty oferty);
         Task InsertAsync(Kwalifikacje kwalifikacje);
         Task InsertAsync(Data.Models.Wniosek wniosek);
+        Task InsertAsync(Data.Models.PosiadaneKwalifikacje kwal);
         Task UpdateType(int id, TypOferty typ);
+        Task UpdateAccess(int id, Osoba osoba);
         Task UpdateCategory(int id, Data.Models.KategoriaOferty kat);
         Task UpdateOffer(int id, Data.Models.Oferty off);
         Task UpdateRoles(int id, Data.Models.Osoba os);

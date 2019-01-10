@@ -135,6 +135,10 @@ namespace Urzad.Data.Models
                 entity.Property(e => e.Wyksztalcenie)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Dostep)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<PosiadaneKwalifikacje>(entity =>
