@@ -49,6 +49,12 @@ namespace Urzad.Repositories
             await _context.SaveChangesAsync();
 
         }
+        public async Task InsertAsync(Data.Models.WymaganeOsiągnięcia wymaganeOsiągnięcia)
+        {
+            _context.WymaganeOsiągnięcia.Add(wymaganeOsiągnięcia);
+            await _context.SaveChangesAsync();
+
+        }
         public async Task UpdateType(int id, TypOferty typ)
         {
             var typx = _context.TypOferty.Find(id);

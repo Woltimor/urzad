@@ -67,6 +67,17 @@ namespace Urzad.Services
             return (int)kwalifikacje.IdKwalifikacji;
            
         }
+        public async Task<int> Insert(Responses.ExpextedAchievementsResponse expextedAchievementsResponse) //dane do Kwalifikacji
+        {
+            Data.Models.WymaganeOsiągnięcia wo = new Data.Models.WymaganeOsiągnięcia()
+            {
+                IdKwalifikacji = expextedAchievementsResponse.IdKwalifikacji,
+                IdOferty = expextedAchievementsResponse.IdOferty
+            };
+            await _managementRep.InsertAsync(wo);
+            return (int)expextedAchievementsResponse.IdKwalifikacji;
+
+        }
         public async Task<int> Insert(ProposalResponse proposal) //dane do Kwalifikacji
         {
             Data.Models.Wniosek kw = new Data.Models.Wniosek()
