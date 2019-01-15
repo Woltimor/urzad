@@ -37,6 +37,8 @@ namespace Urzad.Responses
         public KategoriaOferty IdKategoriiNavigation { get; set; }
         public Osoba IdOsobyNavigation { get; set; }
         public string Nazwa { get; set; }
+        public int IdTypu { get; set; }
+        public string Opis { get; set; }
     }
 
 

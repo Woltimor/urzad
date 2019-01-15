@@ -37,7 +37,8 @@ namespace Urzad.Repository
                    .Select(w=> new Responses.Wniosek
                 {
                     IdKategorii = w.IdKategorii,
-                    Nazwa = w.IdKategoriiNavigation.Nazwa
+                    Nazwa = w.IdKategoriiNavigation.Nazwa,
+                    Opis = w.IdKategoriiNavigation.IdTypuNavigation.Opis
                 }).ToList()
             }).ToListAsync();
 
@@ -68,7 +69,8 @@ namespace Urzad.Repository
                    .Select(w => new Responses.Wniosek
                    {
                        IdKategorii = w.IdKategorii,
-                       Nazwa = w.IdKategoriiNavigation.Nazwa
+                       Nazwa = w.IdKategoriiNavigation.Nazwa,
+                       Opis = w.IdKategoriiNavigation.IdTypuNavigation.Opis
                    }).ToList()
 
                 })
