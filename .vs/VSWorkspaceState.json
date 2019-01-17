@@ -4,9 +4,8 @@
     "\\Urzad",
     "\\Urzad\\Urzad",
     "\\Urzad\\Urzad\\Data",
-    "\\Urzad\\Urzad\\Repositories",
-    "\\Urzad\\Urzad\\Responses",
-    "\\Urzad\\Urzad\\Services"
+    "\\Urzad\\Urzad\\Data\\Models"
   ],
+  "SelectedNode": "\\Urzad\\Urzad\\Data\\Models",
   "PreviewInSolutionExplorer": false
 }

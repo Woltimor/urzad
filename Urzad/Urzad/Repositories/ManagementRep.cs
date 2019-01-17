@@ -93,6 +93,9 @@ namespace Urzad.Repositories
             var ofx = _context.Oferty.Find(id);
             ofx.OpisOferty = oferty.OpisOferty;
             ofx.IdKategorii = oferty.IdKategorii;
+            ofx.AdresFirmy = oferty.AdresFirmy;
+            ofx.Email = oferty.Email;
+            ofx.Pensja = oferty.Pensja;
             _context.Entry(ofx).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 

@@ -77,6 +77,10 @@ namespace Urzad.Data.Models
 
                 entity.Property(e => e.IdOferty).HasColumnName("Id_oferty");
 
+                entity.Property(e => e.AdresFirmy).IsUnicode(false);
+
+                entity.Property(e => e.Email).IsUnicode(false);
+
                 entity.Property(e => e.IdKategorii).HasColumnName("Id_kategorii");
 
                 entity.Property(e => e.OpisOferty)

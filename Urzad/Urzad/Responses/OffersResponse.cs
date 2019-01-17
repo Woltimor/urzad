@@ -11,6 +11,7 @@ namespace Urzad.Responses
         public int IdTypu { get; set; }
         public string Opis { get; set; }
         public ICollection<KategoriaOferty> KategoriaOferty { get; set; }
+
     }
     
     public class Oferty
@@ -19,6 +20,9 @@ namespace Urzad.Responses
         public int? IdTypu { get; set; }
         public string Opis { get; set; }
         public string OpisTypu { get; set; }
+        public int? Pensja { get; set; }
+        public string AdresFirmy { get; set; }
+        public string Email { get; set; }
         public int? IdKategorii { get; set; }
         public string Nazwa { get; set; }
         public string OpisOferty { get; set; }

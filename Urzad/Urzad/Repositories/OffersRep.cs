@@ -77,7 +77,11 @@ namespace Urzad.Repositories
                 IdKategorii = z.IdKategorii,
                 Nazwa = z.IdKategoriiNavigation.Nazwa,
                 IdTypu = z.IdKategoriiNavigation.IdTypu,
-                OpisTypu = z.IdKategoriiNavigation.IdTypuNavigation.Opis
+                OpisTypu = z.IdKategoriiNavigation.IdTypuNavigation.Opis,
+                Pensja = z.Pensja,
+                Email = z.Email,
+                AdresFirmy = z.AdresFirmy
+                
             }).ToListAsync();
         }
     }

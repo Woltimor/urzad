@@ -45,7 +45,7 @@ namespace Urzad.Controllers
 
             if (user == null)
             {
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Niepoprawny login lub hasło" });
             }
             if (user.Dostep == 0)
             {

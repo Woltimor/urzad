@@ -24,6 +24,9 @@ namespace Urzad.Responses
          public int IdOferty { get; set; }
          public int? IdKategorii { get; set; }
          public string OpisOferty { get; set; }
+        public int? Pensja { get; set; }
+        public string AdresFirmy { get; set; }
+        public string Email { get; set; }
 
     }
     public class QualificationResponse

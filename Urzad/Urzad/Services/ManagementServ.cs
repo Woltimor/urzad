@@ -52,7 +52,10 @@ namespace Urzad.Services
             Data.Models.Oferty of = new Data.Models.Oferty()
             {
                 IdKategorii = oferty.IdKategorii,
-                OpisOferty = oferty.OpisOferty
+                OpisOferty = oferty.OpisOferty,
+                Pensja = oferty.Pensja,
+                Email = oferty.Email,
+                AdresFirmy = oferty.AdresFirmy
             };
             await _managementRep.InsertAsync(of);
             return (int)oferty.IdOferty;
@@ -160,7 +163,10 @@ namespace Urzad.Services
             Data.Models.Oferty off = new Data.Models.Oferty
             {
                 OpisOferty = offers.OpisOferty,
-                IdKategorii= offers.IdKategorii
+                IdKategorii= offers.IdKategorii,
+                Email = offers.Email,
+                AdresFirmy = offers.AdresFirmy,
+                Pensja = offers.Pensja
             };
             try
             {
